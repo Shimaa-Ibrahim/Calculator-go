@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Go Calculator</title>
+    <style>
+        div {
+            margin: 20px;
+        }
+        span {
+            margin-right: 3px;
+        }
+    </style>
+  </head>
+  <body>
+    <form action="/calc" method="POST">
+      <div>
+        <span>Enter First Number</span>
+        <input type="number" name="fnum" />
+      </div>
+      <div>
+        <span>Operator</span>
+        <input type="text" name="operator" />
+      </div>
+      <div>
+        <span>Enter second Number</span>
+        <input type="number" name="snum" />
+      </div>
+      <div>
+          <button type="submit">calculate</button>
+      </div>
+    </form>
+    <div>
+        {{if .IsValid}}
+            <h4>Result : {{ .Result }}</h4>
+        {{else}}
+            <p style="color: red; font-size: small;">{{ .ErrorMessage }}</p>
+        {{end}}
+    </div>
+  </body>
+</html>
